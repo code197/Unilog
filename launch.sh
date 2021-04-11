@@ -9,13 +9,13 @@ tp=0.8
 pr=-1
 lsstep=50
 
-wsize=10
-vsize=5
-seqlen=16    # Maximum sequence length
-ochannel=10
-lstmw=64
-lstmd=8
-dp=0.5
+wsize=10 # window size
+vsize=5 # vector size
+seqlen=16 # maximum sequence length
+ochannel=10 # the output channel size of TextCNN
+lstmw=64 # the width of lstm
+lstmd=8 # the depth of lstm
+dp=0.5 # dropout
 
 opt="SGD"
 lr=1e-1       # Learning rate for model parameters
@@ -64,3 +64,13 @@ python -u run.py \
   #--comet \
   #2>&1 &
   #--fp16 \
+
+# MODEL_NAME     DATASET_NAME     tp     pr     opt     lr     wsize     vsize     seqlen     ochannel     lstmw     lstmd     dp     ts     ws     tepoch     bsize     wd     seed
+
+# unilog     BGL     0.8     0.2     SGD     1e-1     10     5     16     10     64     10     0.5     -1     320     10     1000     1e-2     42
+
+# unilog     HDFS     0.8     -1     SGD     1e-1     50     20     50     10     64     8     0.5     -1     320     10     1000     1e-2     42
+
+# unilog     OpenStack     0.8     0.2     SGD     1e-1     10     5     16     10     64     8     0.5     -1     320     10     1000     1e-2     42
+
+# unilog     Thunderbird     0.8     0.2     SGD     1e-1     10     5     16     10     64     8     0.5     -1     320     10     1000     1e-2     42
