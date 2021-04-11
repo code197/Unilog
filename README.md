@@ -1,45 +1,30 @@
 # Unilog
-## 1. TextCNN_for_EventTemplate.py
-### 1.1. Package Requirements
+## 1. Package requirements
 ```
-torch==1.4.0
-numpy==1.18.1
-pandas==1.0.1
-gensim==3.8.1
-progressbar33==2.4
-scikit-learn==0.23.2
-matplotlib==3.1.3
+numpy==1.19.5
+apex==0.9.10dev
+gensim==4.0.1
+pandas==1.2.3
+scikit_learn==0.24.1
+torch==1.8.1
+tqdm==4.60.0
+transformers==4.5.0
 ```
-### 1.2. classWord2Vec_class
-The class is based on gensim.models.Word2Vec, which is used to train and update word embedding vectors.
-### 1.3. class raw_TextCNN
-The class is the backbone of our TextCNN model, which is uesd for CNN initialization and forward propagation.
-### 1.4. class TextCNN
-The class is used to instantiate TextCNN model and train it. 
 
-## 2. BiLSTM_pretrain.py
-### 2.1. Package Requirements
-```
-torch==1.4.0
-numpy==1.18.1
-pandas==1.0.1
-progressbar33==2.4
-scikit-learn==0.23.2
-```
-### 2.2. class raw_BiLSTM
-The class is the backbone of our BiLSTM model, which is uesd for BiLSTM initialization and forward propagation.
-### 2.3. class BiLSTM
-The class is used to instantiate BiLSTM model and train it. 
+## 2. File directory description
+### 2.1. data
+The datasets are saved in `data`.
+### 2.2. checkpoints
+The parameters of the model are saved in `checkpoints`.
+### 2.3. logs
+The training/evaluating logs are saved in `logs`.
 
-## 3. TextCNN_for_classification.py
-### 3.1. Package Requirements
+## 3. Run code
+### 3.1. Install packages
 ```
-torch==1.4.0
-numpy==1.18.1
-pandas==1.0.1
-progressbar33==2.4
-scikit-learn==0.23.2
-matplotlib==3.1.3
+pip install -r requriements.txt
 ```
-### 3.2. Similar to TextCNN_for_EventTemplate.py
-Both of the class raw_TextCNN and the class TextCNN are similar to those in TextCNN_for_EventTemplate.py
+### 3.2. Run code
+```
+sh launch.sh
+```
