@@ -335,11 +335,10 @@ def load_and_cache_examples(args, aim="train"):
     # Load data features from cache or dataset file
     cached_features_file = os.path.join(
         args.data_dir,
-        "cached_{}_{}_{}_{}_{}_{}_{}".format(
+        "cached_{}_{}_{}_{}_{}_{}".format(
             aim,
             str(args.train_percent),
             str(args.dataset_name),
-            str(args.positive_rate),
             str(args.window_size),
             str(args.vector_size),
             str(args.max_seq_len),
@@ -388,7 +387,6 @@ def main():
     parser.add_argument("--do_eval", action="store_true", help="Whether to run eval on the dev set.")
     parser.add_argument("--test_all", action="store_true", help="Whether to test all the data.")
     parser.add_argument("--do_lower_case", action="store_true", help="Set this flag if you are using an uncased model",)
-    parser.add_argument("--positive_rate", type=float, help="Set the rate of positive examples",)
     parser.add_argument("--logging_steps", type=int, default=50, help="Log every X updates steps.")
     parser.add_argument("--save_steps", type=int, default=50, help="Save checkpoint every X updates steps.")
     # MODEL HYPERPARAMETERS
