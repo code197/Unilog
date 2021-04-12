@@ -27,7 +27,7 @@ bsize=1000    # Batch size
 wd=1e-2      # Weight decay
 
 seed=42    # Seed for randomness
-expname=unilog-v2-${dname}-tp${tp}-pr${pr}-opt${opt}-lr${lr}-ws${wsize}-vs${vsize}-sl${seqlen}-oc${ochannel}-lw${lstmw}-ld${lstmd}-dp${dp}-ts${ts}-ws${ws}-te${tepoch}-bs${bsize}-wd${wd}-seed${seed}
+expname=unilog-v2-${dname}-tp${tp}-opt${opt}-lr${lr}-ws${wsize}-vs${vsize}-sl${seqlen}-oc${ochannel}-lw${lstmw}-ld${lstmd}-dp${dp}-ts${ts}-ws${ws}-te${tepoch}-bs${bsize}-wd${wd}-seed${seed}
 
 python -u run.py \
   --gpu ${gpu} \
@@ -40,7 +40,6 @@ python -u run.py \
   --data_dir $DATA_DIR/$dname \
   --dataset_name $dname \
   --train_percent $tp \
-  --positive_rate ${pr} \
   --output_dir checkpoints/${expname}/ --overwrite_output_dir \
   --logging_steps $lsstep --save_steps $lsstep \
   --window_size ${wsize} \
@@ -65,12 +64,12 @@ python -u run.py \
   #2>&1 &
   #--fp16 \
 
-# MODEL_NAME     DATASET_NAME     tp     pr     opt     lr     wsize     vsize     seqlen     ochannel     lstmw     lstmd     dp     ts     ws     tepoch     bsize     wd     seed
+# MODEL_NAME     DATASET_NAME     tp     opt     lr     wsize     vsize     seqlen     ochannel     lstmw     lstmd     dp     ts     ws     tepoch     bsize     wd     seed
 
-# unilog     BGL     0.8     0.2     SGD     1e-1     10     5     16     10     64     10     0.5     -1     320     10     1000     1e-2     42
+# unilog     BGL     0.8     SGD     1e-1     10     5     16     10     64     10     0.5     -1     320     10     1000     1e-2     42
 
-# unilog     HDFS     0.8     -1     SGD     1e-1     50     20     50     10     64     8     0.5     -1     320     10     1000     1e-2     42
+# unilog     HDFS     0.8     SGD     1e-1     50     20     50     10     64     8     0.5     -1     320     10     1000     1e-2     42
 
-# unilog     OpenStack     0.8     0.2     SGD     1e-1     10     5     16     10     64     8     0.5     -1     320     10     1000     1e-2     42
+# unilog     OpenStack     0.8     SGD     1e-1     10     5     16     10     64     8     0.5     -1     320     10     1000     1e-2     42
 
-# unilog     Thunderbird     0.8     0.2     SGD     1e-1     10     5     16     10     64     8     0.5     -1     320     10     1000     1e-2     42
+# unilog     Thunderbird     0.8     SGD     1e-1     10     5     16     10     64     8     0.5     -1     320     10     1000     1e-2     42
